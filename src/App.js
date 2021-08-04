@@ -1,23 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
+import Todo from './componrnts/Todo';
+import Backdrop from './componrnts/Backdrop';
+import Modal from './componrnts/Modal';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-         Hello Hello
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Todo text="Title"/>
+    <Todo text="CARD" />
+    <Modal />
+    <Backdrop />
     </div>
   );
 }
