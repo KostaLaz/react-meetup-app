@@ -22,7 +22,7 @@ const Todo = ( props ) => {
             <div>
                 <button className='btn' onClick={deleteHandler}>Delete</button>
             </div>
-            {modalIsOpen && <Modal onCancelHandler={closeModalHandler}/>}
+            {modalIsOpen && ( <Modal onCancelHandler={closeModalHandler} onConfirmHandler={closeModalHandler}/>)}
             {modalIsOpen && <Backdrop onCancelModal={closeModalHandler} />}
 
         </div>
