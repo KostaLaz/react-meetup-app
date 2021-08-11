@@ -1,5 +1,5 @@
 import React from 'react'
-
+import MeetupList from '../components/meetups/MeetupList'
 
 const DATA = [
     {
@@ -25,12 +25,7 @@ const DATA = [
 function AllMeetupsPage() {
     return (
         <div>
-            <h1>All Meetups Page</h1>
-            <ul>
-                {DATA.map((meetup) => {
-                    return <li key={meetup.id}>{meetup.title}</li>
-                })}
-            </ul>
+            <MeetupList data={DATA} />
         </div>
     )
 }
