@@ -28,7 +28,7 @@ function AllMeetupsPage() {
             <h1>All Meetups Page</h1>
             <ul>
                 {DATA.map((meetup) => {
-                    return <li>{meetup.title}</li>
+                    return <li key={meetup.id}>{meetup.title}</li>
                 })}
             </ul>
         </div>
