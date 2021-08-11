@@ -25,7 +25,7 @@ const DATA = [
 function AllMeetupsPage() {
     return (
         <div>
-            <MeetupList data={DATA} />
+            <MeetupList meetups={DATA} />
         </div>
     )
 }
