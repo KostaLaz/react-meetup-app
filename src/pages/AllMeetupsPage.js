@@ -25,7 +25,12 @@ const DATA = [
 function AllMeetupsPage() {
     return (
         <div>
-            All Meetups Page
+            <h1>All Meetups Page</h1>
+            <ul>
+                {DATA.map((meetup) => {
+                    return <li>{meetup.title}</li>
+                })}
+            </ul>
         </div>
     )
 }
