@@ -9,7 +9,6 @@ import MainNavigation from './components/layouts/MainNavigation';
 function App() {
   return (
    <div>
-     <MainNavigation />
      <Switch>
      <Route path='/' exact>
        <AllMeetupsPage />
