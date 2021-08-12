@@ -1,10 +1,12 @@
 import React from 'react'
 import classes from './MeetupItem.module.css';
+import Card from '../ui/Card';
 
 
 function MeetupItem(props) {
     return (
         <li className={classes.item}>
+            <Card>
         <div className={classes.image}>
             <img src={props.image} alt={props.title} />
         </div>
@@ -16,6 +18,7 @@ function MeetupItem(props) {
         <div className={classes.actions}>
             <button>To Favorites</button>
         </div>
+        </Card>
         </li>
     )
 }
