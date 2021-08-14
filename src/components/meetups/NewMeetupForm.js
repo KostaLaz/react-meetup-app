@@ -18,7 +18,16 @@ function NewMeetupForm() {
         const adressEntered = descriptionInputRef.current.value;
         const decsriptionEntered = descriptionInputRef.current.value;
 
+        const meetupData = {
+            title: titleEntered,
+            image: imageEntered,
+            adress: adressEntered,
+            description: decsriptionEntered
+        }
+
     };
+
+   
 
     return (
        <Card>
