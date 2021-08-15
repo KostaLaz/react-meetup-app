@@ -7,7 +7,7 @@ function NewMeetupForm(props) {
 
     const titleInputRef = useRef();
     const imageInputRef = useRef();
-    const adressInputRef = useRef();
+    const addressInputRef = useRef();
     const descriptionInputRef = useRef();
 
     const submitHandler = (event) => {
@@ -15,16 +15,17 @@ function NewMeetupForm(props) {
 
         const titleEntered = titleInputRef.current.value;
         const imageEntered = imageInputRef.current.value;
-        const adressEntered = adressInputRef.current.value;
+        const addressEntered = addressInputRef.current.value;
         const decsriptionEntered = descriptionInputRef.current.value;
 
         const meetupData = {
             title: titleEntered,
             image: imageEntered,
-            adress: adressEntered,
+            address: addressEntered,
             description: decsriptionEntered
         }
 
+        console.log('FROM::', meetupData);
         props.onAddMeetup(meetupData);
 
     };
@@ -43,8 +44,8 @@ function NewMeetupForm(props) {
                 <input type="url" required id="image" ref={imageInputRef} />
             </div>
             <div className={classes.control}>
-                <label htmlFor="adress">Adress</label>
-                <input type="text" required id="adress" ref={adressInputRef} />
+                <label htmlFor="address">Address</label>
+                <input type="text" required id="address" ref={addressInputRef} />
             </div>
             <div className={classes.control}>
                 <label htmlFor="decription">Description</label>
