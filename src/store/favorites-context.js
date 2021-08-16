@@ -6,18 +6,13 @@ const FavoritesContext = createContext({
 });
 
 function FavoritesCOntextProvider(props) {
+
     const [userFavorites, setUserFavorites] = useState();
 
-    const addFavoriteHandler = () => {
-
-    }
-
-    const removeFavoriteHandler = () => {
-
-    }
-
-    const itemIsFavoriteHandler = () => {
-        
+    const addFavoriteHandler = (favoriteMeetup) => {
+      setUserFavorites((prevUserFavorites) => {
+          return prevUserFavorites.concat(favoriteMeetup);
+      });
     }
 
     const context = {
