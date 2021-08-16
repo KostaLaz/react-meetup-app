@@ -15,6 +15,12 @@ function FavoritesCOntextProvider(props) {
       });
     }
 
+    const removeFavoriteHandler = (meetupId) => {
+        setUserFavorites((prevUserFavorites) => {
+            return prevUserFavorites.filter(meetup => meetup.id!== meetupId);
+        })
+    }
+    
     const context = {
         favorites: userFavorites,
         totalFavorites: userFavorites.length
