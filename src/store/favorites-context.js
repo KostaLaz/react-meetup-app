@@ -21,6 +21,11 @@ function FavoritesCOntextProvider(props) {
         })
     }
     
+    const itemIsFavoriteHandler = (meetupId) => {
+        return userFavorites.some(meetup => meetup.id === meetupId);
+    }
+
+
     const context = {
         favorites: userFavorites,
         totalFavorites: userFavorites.length
