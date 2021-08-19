@@ -37,7 +37,7 @@ function MeetupItem(props) {
     const toggleFavoriteStatusHandler = () => {
         if (itemIsFavorite) {
             favoritesContext.removeFavorite(props.id);
-            removeFromFavoritesHandler(favoritesContext);
+            removeFromFavoritesHandler(props.id);
         } else {
             favoritesContext.addFavorite({
                 id: props.id,
@@ -46,7 +46,8 @@ function MeetupItem(props) {
                 image: props.image,
                 address: props.adress
             });
-            addToFavoritesHandler(favoritesContext);
+            console.log('FAV CONTEXT',favoritesContext.favorites);
+            addToFavoritesHandler(favoritesContext.favorites);
         }
     }
 

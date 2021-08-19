@@ -12,29 +12,32 @@ function FavoritesPage() {
     const [loadedFavorites, setLoadedFavorites] = useState([]);
 
     useEffect(() => {
+        console.log('VLEZEEE')
         setIsLoading(true);
         fetch(
           'https://meetup-app-4c489-default-rtdb.firebaseio.com/favorites.json'
         ).then(response => {
           return response.json();
         }).then(data => {
-          const favorites = [];
+          const meetups = [];
           for (const key in data) {
-            const favorite = {
+            const meetup = {
               id: key,
               ...data[key]
             }
-            favorites.push(favorite);
+            meetups.push(meetup);
           }
           setIsLoading(false);
-          setLoadedFavorites(favorites);
+          setLoadedFavorites(meetups);
+          console.log('FAVORITES:: ', meetups)
         });
       }, []);
 
     if (favoritesContext.totalFavorites === 0) {
         content = <p>You got no favorites yet. Start adding some?</p>
     } else {
-       content = <MeetupList meetups={favoritesContext.favorites} />
+        console.log('FROM LIST:: ', favoritesContext.favorites);
+       content = <MeetupList meetups={loadedFavorites} />
     }
 
     return (
