@@ -24,10 +24,7 @@ function NewMeetupForm(props) {
             address: addressEntered,
             description: decsriptionEntered
         }
-
-        console.log('FROM::', meetupData);
         props.onAddMeetup(meetupData);
-
     };
 
    
@@ -59,4 +56,4 @@ function NewMeetupForm(props) {
     )
 }
 
-export default NewMeetupForm
+export default NewMeetupForm;

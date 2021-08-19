@@ -11,12 +11,12 @@ function NewMeetupPage() {
             method: 'POST',
             body: JSON.stringify(meetupData),
             headers: {
-                'Contnt-Type': 'pplication/json'
+                'Contnt-Type': 'application/json'
             }
         }
       ).then(() => {
           history.replace('/');
-      })
+      });
     }
 
     return (
