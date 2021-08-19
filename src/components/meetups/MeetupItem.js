@@ -11,11 +11,11 @@ function MeetupItem(props) {
 
     const itemIsFavorite = favoritesContext.isItemFavorite(props.id);
 
-    const removeFromFavoritesHandler = (favorites) => {
+    const removeFromFavoritesHandler = (favoriteId) => {
         fetch('https://meetup-app-4c489-default-rtdb.firebaseio.com/favorites.json',
         {
-            method: 'PUT',
-            body: JSON.stringify(favorites),
+            method: 'DELETE',
+            body: JSON.stringify(favoriteId),
             headers: {
                 'Contnt-Type': 'pplication/json'
             }
@@ -24,6 +24,7 @@ function MeetupItem(props) {
     }
 
     const addToFavoritesHandler = (favorite) => {
+        console.log('OD CALL:::', favorite);
         fetch('https://meetup-app-4c489-default-rtdb.firebaseio.com/favorites.json',
         {
             method: 'POST',
@@ -37,17 +38,18 @@ function MeetupItem(props) {
     const toggleFavoriteStatusHandler = () => {
         if (itemIsFavorite) {
             favoritesContext.removeFavorite(props.id);
-            removeFromFavoritesHandler(props.id);
+          //  removeFromFavoritesHandler(props.id);
         } else {
-            favoritesContext.addFavorite({
-                id: props.id,
-                title: props.title,
-                decsription: props.description,
-                image: props.image,
-                address: props.adress
-            });
+            const newFavorite = {
+            id: props.id,
+            title: props.title,
+            decsription: props.description,
+            image: props.image,
+            address: props.adress
+        }
+            favoritesContext.addFavorite(newFavorite);
             console.log('FAV CONTEXT',favoritesContext.favorites);
-            addToFavoritesHandler(favoritesContext.favorites);
+            addToFavoritesHandler(newFavorite);
         }
     }
 
