@@ -48,7 +48,6 @@ function MeetupItem(props) {
             address: props.adress
         }
             favoritesContext.addFavorite(newFavorite);
-            console.log('FAV CONTEXT',favoritesContext.favorites);
             addToFavoritesHandler(newFavorite);
         }
     }
