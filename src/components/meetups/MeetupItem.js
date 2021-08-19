@@ -11,9 +11,33 @@ function MeetupItem(props) {
 
     const itemIsFavorite = favoritesContext.isItemFavorite(props.id);
 
+    const removeFromFavoritesHandler = (favorites) => {
+        fetch('https://meetup-app-4c489-default-rtdb.firebaseio.com/favorites.json',
+        {
+            method: 'PUT',
+            body: JSON.stringify(favorites),
+            headers: {
+                'Contnt-Type': 'pplication/json'
+            }
+
+        })
+    }
+
+    const addToFavoritesHandler = (favorite) => {
+        fetch('https://meetup-app-4c489-default-rtdb.firebaseio.com/favorites.json',
+        {
+            method: 'POST',
+            body: JSON.stringify(favorite),
+            headers: {
+                'Contnt-Type': 'application/json'
+            }
+        });
+    }
+
     const toggleFavoriteStatusHandler = () => {
         if (itemIsFavorite) {
             favoritesContext.removeFavorite(props.id);
+            removeFromFavoritesHandler(favoritesContext);
         } else {
             favoritesContext.addFavorite({
                 id: props.id,
@@ -21,7 +45,8 @@ function MeetupItem(props) {
                 decsription: props.description,
                 image: props.image,
                 address: props.adress
-            })
+            });
+            addToFavoritesHandler(favoritesContext);
         }
     }
 
