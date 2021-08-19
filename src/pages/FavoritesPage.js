@@ -12,7 +12,6 @@ function FavoritesPage() {
     const [loadedFavorites, setLoadedFavorites] = useState([]);
 
     useEffect(() => {
-        console.log('VLEZEEE')
         setIsLoading(true);
         fetch(
           'https://meetup-app-4c489-default-rtdb.firebaseio.com/favorites.json'
@@ -29,16 +28,20 @@ function FavoritesPage() {
           }
           setIsLoading(false);
           setLoadedFavorites(meetups);
-          console.log('FAVORITES:: ', meetups)
         });
       }, []);
 
     if (favoritesContext.totalFavorites === 0) {
         content = <p>You got no favorites yet. Start adding some?</p>
     } else {
-        console.log('FROM LIST:: ', favoritesContext.favorites);
        content = <MeetupList meetups={loadedFavorites} />
     }
+
+    if (isLoading) {
+        return <section>
+          <p>Loadig...</p>
+        </section>
+      }
 
     return (
         <section>
