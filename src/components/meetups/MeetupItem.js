@@ -11,17 +11,17 @@ function MeetupItem(props) {
 
     const itemIsFavorite = favoritesContext.isItemFavorite(props.id);
 
-    const removeFromFavoritesHandler = (favoriteId) => {
-        fetch('https://meetup-app-4c489-default-rtdb.firebaseio.com/favorites.json',
-        {
-            method: 'DELETE',
-            body: JSON.stringify(favoriteId),
-            headers: {
-                'Contnt-Type': 'pplication/json'
-            }
+    // const removeFromFavoritesHandler = (favoriteId) => {
+    //     fetch('https://meetup-app-4c489-default-rtdb.firebaseio.com/favorites.json',
+    //     {
+    //         method: 'DELETE',
+    //         body: JSON.stringify(favoriteId),
+    //         headers: {
+    //             'Contnt-Type': 'pplication/json'
+    //         }
 
-        })
-    }
+    //     })
+    // }
 
     const addToFavoritesHandler = (favorite) => {
         console.log('OD CALL:::', favorite);
